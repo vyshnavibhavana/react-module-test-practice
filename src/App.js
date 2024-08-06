@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+import './App.css';
+import LeftPanel from './components/LeftPanel';
+import NoteDialog from './components/NoteDialog';
+import RightPanel from './components/RightPanel';
+
+const App = () => {
+  const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    setNotes(savedNotes);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
+
+  const addNote = (note) => {
+    setNotes([...notes, note]);
+  };
+
+  const selectNote = (note) => {
+    setSelectedNote(note);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <LeftPanel notes={notes} onAddNote={addNote} onSelectNote={selectNote} />
+      <RightPanel note={selectedNote} />
+      <NoteDialog onAddNote={addNote} />
     </div>
   );
-}
+};
 
 export default App;

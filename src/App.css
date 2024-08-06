@@ -36,3 +36,102 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel {
+  width: 30%;
+  padding: 20px;
+  background: #f4f4f4;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.left-panel ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.left-panel li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.left-panel .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 10px;
+}
+
+.left-panel button {
+  padding: 10px;
+  margin-top: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.right-panel {
+  width: 70%;
+  padding: 20px;
+}
+
+.right-panel img {
+  width: 67%;
+  height: auto;
+}
+
+.right-panel h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.right-panel textarea {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.right-panel button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-card {
+  padding: 10px;
+  background: #f4f4f4;
+  margin: 10px 0;
+}
+
+
+
+
