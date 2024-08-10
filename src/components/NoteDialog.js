@@ -17,21 +17,25 @@ const NoteDialog = ({ onAddNote }) => {
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>+</button>
+      <button onClick={() => setOpen(true)} className='plusButton'>+</button>
       {open && (
         <div className="dialog">
           <h2>Create Note</h2>
+          <label>Note Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Note Name"
           />
+          <label>Color </label>
+          <br/>
           <input
             type="color"
             value={color}
             onChange={(e) => setColor(e.target.value)}
           />
+          <br/>
           <button onClick={handleCreate}>Create</button>
           <button onClick={() => setOpen(false)}>Cancel</button>
         </div>
