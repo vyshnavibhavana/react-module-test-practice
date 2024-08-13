@@ -1,57 +1,15 @@
-// import React from 'react';
-
-// const LeftPanel = ({ notes, onAddNote, onSelectNote }) => {
-
-//     console.log(onAddNote)
-//   return (
-//     <div className="left-panel">
-//       <h1>Pocket Notes</h1>
-//       {/* <ul>
-//         {notes.map((note, index) => (
-//           <li key={index} onClick={() => onSelectNote(note)}>
-//             <div className="logo" style={{ backgroundColor: note.color }}>
-//               {note.name.split(' ').map(word => word[0]).join('')}
-//             </div>
-//             {note.name}
-//           </li>
-//         ))}
-//       </ul> */}
-
-// <ul>
-//         {notes.map((note, index) => (
-//           note && (
-//             <li key={index} onClick={() => onSelectNote(note)}>
-//               <div className="logo" style={{ backgroundColor: note.color || '#ffffff' }}>
-//                 {note.name.split(' ').map(word => word[0]).join('')}
-//               </div>
-//               {note.name}
-//             </li>
-//           )
-//         ))}
-//       </ul>
-//       <button onClick={() => onAddNote()}>+</button>
-//     </div>
-//   );
-// };
-
-// export default LeftPanel;
-
-
-
 import React from 'react';
 
-const LeftPanel = ({ notes, onAddNote, onSelectNote,selectedNote,isActive }) => {
+const LeftPanel = ({ notes, onAddNote, onSelectNote,selectedNote,isActive,plusButtonActive }) => {
 
   const getInitials = (name) => {
     if (!name) return '';
-    // Split the name into words, map each word to its first letter, and join the first two initials
     const initials = name
       .split(' ')
-      .map(word => word[0]) // Get the first letter of each word
+      .map(word => word[0]) 
       .join('')
-      .toUpperCase(); // Convert to uppercase for consistency
+      .toUpperCase(); 
   
-    // Return only the first two initials
     return initials.slice(0, 2);
   };
   
